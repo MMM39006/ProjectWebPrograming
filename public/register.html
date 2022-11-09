@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel='stylesheet' type='text/css' media='screen' href='css\main.css'>
+	<script type="text/javascript" src="js/login.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <form name="myForm" id="myForm" action="login.html">
+    <form name="myForm" id="myForm" action="/registerDB" method="post" accept-charset="utf-8">
 		<fieldset  id = "RigisterHeader">
 			<legend id = "RegisterHeaderText">Register</legend>
 			<span>* require</span> <br>
@@ -30,9 +31,13 @@
 			Retype Password*: 
 			<input type="password" name="Retypepassword" required>
 			<br>
-			<input type="submit" value="Register">
-			<input type="reset" value="Reset">
+			<input type="submit" name="submit" value="Register">
 		</fieldset>
 	</form>
+	
+	<form action="login.html">
+		<input type="submit" name="login" value="login">
+	</form>
+	
 </body>
 </html>

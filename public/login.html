@@ -5,20 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel='stylesheet' type='text/css' media='screen' href='css\main.css'>
+	<script type="text/javascript" src="js/login.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <form name="myLogin" id = "myLogin" action="loginComplete.html">
+    <form name="myLogin" id = "myLogin" action="/loginDB" method="post" accept-charset="utf-8">
 		<fieldset id = "RigisterHeader">
 			<legend id = "RegisterHeaderText">Login</legend>
-			Username: 
-			<input type="text" name="username" id="username" required>
+			Username: <input type="text" name="username" id="username" required>
 			<br>
-			Password: 
-			<input type="password" name="password" required>
+			Password: <input type="password" name="password" required>
 			<br>
 			<input type="submit" value="Login">
-			<input type="reset" value="Clear">
 		</fieldset>
 	</form>
 </body>
