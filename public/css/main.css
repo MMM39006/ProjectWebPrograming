@@ -1,35 +1,73 @@
 body{
     background-color: rgb(102, 102, 168);
-    height: 100%;
-    padding-top: 100px;
-    display: flex;
+    /* padding-top: 100px; */
     justify-content: center;
 }
 
 /* ของ login */
 #myLogin{
     padding-top: 10px;
-    margin-left: 10px; 
-    width: 360px;
-    border-radius: 15px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    /* height: 300px; */
-    background-color: aliceblue;
-}
-
-
-
-/* ขอ Register */
-#RigisterHeader{
-    border: 0px solid black;
-}
-
-#myForm{
-    padding-top: 10px;
-    margin-left: 10px; 
+    margin: 0 auto;
     width: 480px;
     border-radius: 25px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     /* height: 720px; */
     background-color: aliceblue;
 }
+
+
+
+/* ของ Register */
+#RigisterHeader{
+    border: 0px solid black;
+}
+
+#myForm{
+    padding-top: 10px;
+    margin: 0 auto;
+    width: 480px;
+    border-radius: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* height: 720px; */
+    background-color: aliceblue;
+}
+
+/* ของ Home */
+#HomePic{
+	width:100%;
+    height: 550px;
+    background-color: whitesmoke;
+}
+
+#container{
+    text-align: center;
+	width:100%;
+	display: block;
+}
+
+#layer div{
+	width:400px;
+    border-radius: 20px;
+    background-color: aliceblue;
+	height: 400px;
+	margin: 1%;
+	text-align: center;
+	display: inline-block;
+}
+a{
+    text-decoration: none;
+}
+
+#MainMenu div{
+    margin:15px;
+    background-color: aquamarine;
+    height: 220px;
+    width: 320px;
+
+}
+
+#leftpage{
+    padding-left: 25px;
+    text-align: left;
+}
+
