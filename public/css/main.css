@@ -71,3 +71,106 @@ a{
     text-align: left;
 }
 
+
+/* ของ shopping */
+/* #header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 2rem 9%;
+    background: #fff;
+} */
+
+#Leftpage{
+    text-align: left;
+}
+
+#Rightpage{
+    text-align: right;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 25% auto auto auto;
+    grid-gap: 10px;
+}
+
+.grid-container > div{
+    border: 1px solid black;
+    font-size: 20px;
+    text-align: center;
+    background-color:white;
+}
+
+#header{
+    grid-column: 1 / span 4;
+    padding: 2rem 9%;
+    border: 1px solid black;
+}
+
+#Menubar{
+    grid-column: 1 / span 1;
+    display: block;
+}
+
+a{
+    color: black;
+}
+
+#HeaderTextMenubar{
+    padding: 25px;
+    margin: 5px;
+    /* border-radius: 7px; */
+    text-align: left;
+    background-color: gainsboro;
+}
+
+#MenuProduct{
+    padding: 20px;
+    padding-left: 50px;
+    margin: 5px;
+    border-radius: 7px;
+    border-left: 5px solid palevioletred;
+    text-align: left;
+    background-color: gainsboro;
+
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+} 
+  
+li a{
+    display: block;
+    background-color: #dddddd;
+}
+
+#Product{
+    grid-column: 2 / span 3;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#Product div{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.ProductDetail{
+    width: 360px;
+    height: 380px;
+    border-radius: 7px;
+    border:1px solid red;
+}
+.Name{
+    text-align: left;
+}
+.Price{
+    color: red;
+}
