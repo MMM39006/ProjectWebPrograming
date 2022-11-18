@@ -96,6 +96,8 @@ app.post('/loginDB',async (req,res) => {
     }
     
     if(Checklogin == true){
+        let sql = "CREATE TABLE IF NOT EXISTS productdata (id int AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), type VARCHAR(255), price VARCHAR(255),  img VARCHAR(255))";
+        let result = await queryDB(sql);
         return res.redirect("home.html");
     }
     else{
@@ -103,6 +105,87 @@ app.post('/loginDB',async (req,res) => {
     }
 
 })
+
+app.get('/readPost', async (req,res) => {
+    tablename = "productdata";
+
+    sql = `SELECT * FROM ${tablename}`;
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    // console.log(result);
+    res.json(result);
+})
+
+app.get('/readDataCpu', async (req,res) => {
+    tablename = "productdata";
+
+    sql = `SELECT * FROM ${tablename} WHERE type = 'cpu'`;
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    // console.log(result);
+    res.json(result);
+})
+
+app.get('/readDataMainboard', async (req,res) => {
+    tablename = "productdata";
+
+    sql = `SELECT * FROM ${tablename} WHERE type = 'mainboard'`;
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    // console.log(result);
+    res.json(result);
+})
+
+app.get('/readDataVGA', async (req,res) => {
+    tablename = "productdata";
+
+    sql = `SELECT * FROM ${tablename} WHERE type = 'vga'`;
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    // console.log(result);
+    res.json(result);
+})
+
+app.get('/readDataMenory', async (req,res) => {
+    tablename = "productdata";
+
+    sql = `SELECT * FROM ${tablename} WHERE type = 'ram'`;
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    console.log(result);
+    res.json(result);
+})
+
+app.get('/readDataHarddisk', async (req,res) => {
+    tablename = "productdata";
+
+    sql = `SELECT * FROM ${tablename} WHERE type = 'hdd'`;
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    console.log(result);
+    res.json(result);
+})
+
+app.get('/readDataPowerSuply', async (req,res) => {
+    tablename = "productdata";
+
+    sql = `SELECT * FROM ${tablename} WHERE type = 'pw'`;
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    console.log(result);
+    res.json(result);
+})
+
+app.get('/readDataCase', async (req,res) => {
+    tablename = "productdata";
+
+    sql = `SELECT * FROM ${tablename} WHERE type = 'case'`;
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    console.log(result);
+    res.json(result);
+})
+
 
 app.listen(port, hostname, () => {
     console.log(`Server running at   http://${hostname}:${port}/register.html`);

@@ -128,7 +128,7 @@ a{
     background-color: gainsboro;
 }
 
-#MenuProduct{
+#MenuProductCPU{
     padding: 20px;
     padding-left: 50px;
     margin: 5px;
@@ -136,7 +136,75 @@ a{
     border-left: 5px solid palevioletred;
     text-align: left;
     background-color: gainsboro;
+}
 
+#MenuProductMainboard{
+    padding: 20px;
+    padding-left: 50px;
+    margin: 5px;
+    border-radius: 7px;
+    border-left: 5px solid palevioletred;
+    text-align: left;
+    background-color: gainsboro;
+}
+
+#MenuProductVGA{
+    padding: 20px;
+    padding-left: 50px;
+    margin: 5px;
+    border-radius: 7px;
+    border-left: 5px solid palevioletred;
+    text-align: left;
+    background-color: gainsboro;
+}
+
+#MenuProductVGA{
+    padding: 20px;
+    padding-left: 50px;
+    margin: 5px;
+    border-radius: 7px;
+    border-left: 5px solid palevioletred;
+    text-align: left;
+    background-color: gainsboro;
+}
+#MenuProductMemory{
+    padding: 20px;
+    padding-left: 50px;
+    margin: 5px;
+    border-radius: 7px;
+    border-left: 5px solid palevioletred;
+    text-align: left;
+    background-color: gainsboro;
+}
+
+#MenuProductHarddisk{
+    padding: 20px;
+    padding-left: 50px;
+    margin: 5px;
+    border-radius: 7px;
+    border-left: 5px solid palevioletred;
+    text-align: left;
+    background-color: gainsboro;
+}
+
+#MenuProductPowerSuply{
+    padding: 20px;
+    padding-left: 50px;
+    margin: 5px;
+    border-radius: 7px;
+    border-left: 5px solid palevioletred;
+    text-align: left;
+    background-color: gainsboro;
+}
+
+#MenuProductCase{
+    padding: 20px;
+    padding-left: 50px;
+    margin: 5px;
+    border-radius: 7px;
+    border-left: 5px solid palevioletred;
+    text-align: left;
+    background-color: gainsboro;
 }
 
 ul{
@@ -171,6 +239,13 @@ li a{
 .Name{
     text-align: left;
 }
+
+.ProductPicture{
+    /* background-color: black; */
+    width: 250px;
+    height: 250px;
+}
+
 .Price{
     color: red;
 }
