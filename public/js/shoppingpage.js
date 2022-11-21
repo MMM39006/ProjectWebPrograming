@@ -2,6 +2,7 @@ window.onload = pageLoad;
 
 function pageLoad(){
 	ReadData();
+	document.getElementById('HeaderTextMenubar').onclick = ReadData;
 	document.getElementById('MenuProductCPU').onclick = ReadDataCpu;
 	document.getElementById('MenuProductMainboard').onclick = ReadDataMainboard;
 	document.getElementById('MenuProductVGA').onclick = ReadDataVGA;
@@ -96,7 +97,12 @@ function showPost(data){
 		temp.appendChild(temp1);
 
 		var temp1 = document.createElement("button");
-		temp1.innerHTML = "Add";
+		temp1.onclick = addToCart(data[keys[i]]["id"]);
+		temp1.innerHTML = "Add To Cart";
 		temp.appendChild(temp1);
+	}
+
+	function addToCart(item){
+
 	}
 }

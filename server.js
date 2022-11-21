@@ -96,7 +96,7 @@ app.post('/loginDB',async (req,res) => {
     }
     
     if(Checklogin == true){
-        let sql = "CREATE TABLE IF NOT EXISTS productdata (id int AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), type VARCHAR(255), price VARCHAR(255),  img VARCHAR(255))";
+        let sql = "CREATE TABLE IF NOT EXISTS productdata (id int AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), type VARCHAR(255), price int,  img VARCHAR(255))";
         let result = await queryDB(sql);
         return res.redirect("home.html");
     }
