@@ -233,7 +233,8 @@ app.post('/getData',async (req,res) => {
             // console.log(DataNameAddToCart);
 
             let iteminCart = result[ProductKeys[i]].name;
-
+            console.log(iteminCart);
+            console.log(DataNameAddToCart);
             if(DataNameAddToCart == iteminCart){
                 var quantity = 1;
                 quantity += result[ProductKeys[i]].quantity;
@@ -247,17 +248,13 @@ app.post('/getData',async (req,res) => {
                 return;
             }
 
-            else{
-                sql = `INSERT INTO cart (name, price, img, quantity) VALUES ("${req.body.name}","${req.body.price}","${req.body.img}","${1}")`;
-                result = await queryDB(sql)
-
-                sql = `SELECT * FROM ${tablename}`;
-                result = await queryDB(sql);
-                result = Object.assign({},result);
-                return;
-
-            }
         }
+        sql = `INSERT INTO cart (name, price, img, quantity) VALUES ("${req.body.name}","${req.body.price}","${req.body.img}","${1}")`;
+        result = await queryDB(sql)
+        sql = `SELECT * FROM ${tablename}`;
+        result = await queryDB(sql);
+        result = Object.assign({},result);
+        return;
     }
     // console.log(Object.keys(result).length);
     // console.log(result);

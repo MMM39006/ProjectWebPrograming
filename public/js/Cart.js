@@ -18,11 +18,8 @@ function getData(){
     let price = urlParams.get('price')
     console.log(price);
 
-	let id = urlParams.get('id')
-    console.log(id);
-
     // GetData(name);
-	GetData(name,img,price,id);
+	GetData(name,img,price);
 }
 
 // async function GetData(name){
@@ -30,7 +27,7 @@ function getData(){
 // 	const Data = await DataPost.json(name);
 // }
 
-async function GetData(name,img,price,id){
+async function GetData(name,img,price){
 	let response = await fetch("/getData",{
 		method: "POST",
 		headers: {
@@ -38,7 +35,6 @@ async function GetData(name,img,price,id){
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify({
-			id:id,
 			name:name,
 			img:img,
 			price:price

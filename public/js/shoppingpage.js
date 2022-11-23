@@ -115,12 +115,6 @@ function showPost(data){
 
 		var temp4 = document.createElement("input")
 		temp4.type = "hidden"
-		temp4.name = "id";
-		temp4.value = data[keys[i]]["id"];
-		temp2.appendChild(temp4)
-
-		var temp4 = document.createElement("input")
-		temp4.type = "hidden"
 		temp4.name = "name";
 		temp4.value = data[keys[i]]["name"];
 		temp2.appendChild(temp4);
