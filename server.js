@@ -196,6 +196,16 @@ app.get('/Cart', async (req,res) => {
     // return render_template('Cart.html');
 })
 
+app.get('/GetCartData', async (req,res) => {
+    tablename = "cart";
+
+    sql = `SELECT * FROM ${tablename}`;
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    console.log(result);
+    res.json(result);
+})
+
 // app.get('/GetItemData', async(req,res) =>{
 //     const DataItem = await req.body;
 //     console.log(DataItem);
@@ -233,8 +243,8 @@ app.post('/getData',async (req,res) => {
             // console.log(DataNameAddToCart);
 
             let iteminCart = result[ProductKeys[i]].name;
-            console.log(iteminCart);
-            console.log(DataNameAddToCart);
+            // console.log(iteminCart);
+            // console.log(DataNameAddToCart);
             if(DataNameAddToCart == iteminCart){
                 var quantity = 1;
                 quantity += result[ProductKeys[i]].quantity;
