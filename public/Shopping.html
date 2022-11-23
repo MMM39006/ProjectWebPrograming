@@ -12,7 +12,7 @@
     <div class="grid-container">
         <div id="header">
             <div id="Leftpage"><a href="home.html"> Home</a></div>
-            <div id="Rightpage"><a href="#"> basket</a></div>
+            <div id="Rightpage"><a href="#">Cart</a></div>
         </div>
         <div id="Menubar">
             <div id="HeaderTextMenubar">Product</div>
@@ -27,8 +27,17 @@
               </ul>
         </div>
         
+
         <div id="Product">
-            <!-- <div class="ProductDetail">
+            <form action="Cart.html" method="post"> 
+                    <!-- <input type = "hidden" name="cloth_name" value="{{clothe[0]}}">
+                    <input type = "hidden" name="price" value="{{clothe[1]}}">
+                    <input type = "hidden" name="file_location" value="{{clothe[2]}}"> -->
+                    <button type ="submit" class = "btn">
+                        <a class="btn btn-outline-dark btn-square"><i class="fa fa-shopping-cart"></i></a>
+                    </button>
+            </form>
+                <!-- <div class="ProductDetail">
                 <div class="Name">Cpu</div>
                 <div class="ProductPicture">
                     <img src="www" alt="qq">
@@ -36,8 +45,10 @@
                 <div class="Price">
                     Price:200
                 </div>
-                <button></button> -->
-            </div>
+                <button></button>
+            </div> -->
+            </form>
+            
         </div>
         
     </div>

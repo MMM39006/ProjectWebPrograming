@@ -21,6 +21,14 @@ function pageLoad(){
 	// readPost();
 }
 
+async function TestDaata(){
+	console.log(GetValue.value);
+}
+
+async function GetValue(){
+	document.getElementById();
+}
+
 async function ReadData(){
 	const DataPost = await fetch('/readPost');
 	const Data = await DataPost.json();
@@ -72,6 +80,7 @@ async function ReadDataCase(){
 function showPost(data){
 	var keys = Object.keys(data);
 	var divTag = document.getElementById("Product");
+
 	divTag.innerHTML = "";
 	for (var i = keys.length-1; i >=0 ; i--) {
 
@@ -79,7 +88,9 @@ function showPost(data){
 		temp.className = "ProductDetail";
 		temp.id = data[keys[i]]["id"];
 		divTag.appendChild(temp);
+
 		var temp1 = document.createElement("div");
+		temp1
 		temp1.className = "Name";
 		temp1.innerHTML = data[keys[i]]["name"];
 		temp.appendChild(temp1);
@@ -87,7 +98,7 @@ function showPost(data){
 		var temp1 = document.createElement("img");
 		temp1.className = "ProductPicture"
 		temp.appendChild(temp1);
-		console.log(data[keys[i]]["img"]);
+		// console.log(data[keys[i]]["img"]);
 		temp1.src = "img/"+data[keys[i]]["img"];
 		temp.appendChild(temp1);
 
@@ -96,13 +107,55 @@ function showPost(data){
 		temp1.innerHTML = "Price:  "+data[keys[i]]["price"];
 		temp.appendChild(temp1);
 
-		var temp1 = document.createElement("button");
-		temp1.onclick = addToCart(data[keys[i]]["id"]);
+		var temp2 = document.createElement("form");
+		temp2.name = "Cart";
+		temp2.action = 'Cart.html'
+		temp2.method ="get"
+		temp.appendChild(temp2);
+
+		var temp4 = document.createElement("input")
+		temp4.type = "hidden"
+		temp4.name = "id";
+		temp4.value = data[keys[i]]["id"];
+		temp2.appendChild(temp4)
+
+		var temp4 = document.createElement("input")
+		temp4.type = "hidden"
+		temp4.name = "name";
+		temp4.value = data[keys[i]]["name"];
+		temp2.appendChild(temp4);
+		
+		var temp4 = document.createElement("input")
+		temp4.type = "hidden"
+		temp4.name = "img"
+		temp4.value = data[keys[i]]["img"];
+		temp2.appendChild(temp4);
+
+		var temp4 = document.createElement("input")
+		temp4.type = "hidden"
+		temp4.name = "price"
+		temp4.value = data[keys[i]]["price"];
+		temp2.appendChild(temp4);
+
+		var temp3 = document.createElement("button");
+		temp3.type ="submit"
+		temp3.onclick = TestDaata;
+		temp2.appendChild(temp3);
+
+		// var temp5 = document.createElement("a");
+		// temp5.href = "Cart.html";
+		// temp3.appendChild(temp5);
+
 		temp1.innerHTML = "Add To Cart";
 		temp.appendChild(temp1);
+
+		// <input type = "hidden" name="cloth_name" value="{{clothe[0]}}">
+        //             <input type = "hidden" name="price" value="{{clothe[1]}}">
+        //             <input type = "hidden" name="file_location" value="{{clothe[2]}}">
+        //             <button type ="submit" class = "btn">
+        //                 <a class="btn btn-outline-dark btn-square"><i class="fa fa-shopping-cart"></i></a>
+        //             </button>
+
 	}
 
-	function addToCart(item){
-
-	}
 }

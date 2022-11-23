@@ -10,6 +10,7 @@ const path = require('path');
 const mysql = require('mysql');
 const { count, Console } = require('console');
 const { resolve } = require('path');
+const { privateEncrypt } = require('crypto');
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -152,7 +153,7 @@ app.get('/readDataMenory', async (req,res) => {
     sql = `SELECT * FROM ${tablename} WHERE type = 'ram'`;
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
+    // console.log(result);
     res.json(result);
 })
 
@@ -162,7 +163,7 @@ app.get('/readDataHarddisk', async (req,res) => {
     sql = `SELECT * FROM ${tablename} WHERE type = 'hdd'`;
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
+    // console.log(result);
     res.json(result);
 })
 
@@ -172,7 +173,7 @@ app.get('/readDataPowerSuply', async (req,res) => {
     sql = `SELECT * FROM ${tablename} WHERE type = 'pw'`;
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
+    // console.log(result);
     res.json(result);
 })
 
@@ -182,10 +183,86 @@ app.get('/readDataCase', async (req,res) => {
     sql = `SELECT * FROM ${tablename} WHERE type = 'case'`;
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
+    // console.log(result);
     res.json(result);
 })
 
+
+app.get('/Cart', async (req,res) => {
+    // const queryString = window.location.search;
+
+    // console.log(queryString);
+    return res.redirect('Cart.html');
+    // return render_template('Cart.html');
+})
+
+// app.get('/GetItemData', async(req,res) =>{
+//     const DataItem = await req.body;
+//     console.log(DataItem);
+
+//     res.json(DataItem);
+// })
+
+app.post('/getData',async (req,res) => {
+    tablename = "Cart";
+    let sql = "CREATE TABLE IF NOT EXISTS Cart (id int AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), price int,  img VARCHAR(255), quantity int)";
+    let result = await queryDB(sql);
+
+    const DataNameAddToCart = await req.body.name;
+    
+    // console.log(DataNameAddToCart);
+
+    sql = `SELECT * FROM ${tablename}`;
+    result = await queryDB(sql);
+    result = Object.assign({},result);
+    let ProductKeys = Object.keys(result);
+    // console.log(result);
+    // console.log(result[ProductKeys[0]].name);
+
+    if(Object.keys(result).length == 0){
+        console.log("iiiiii");
+        sql = `INSERT INTO cart (name, price, img, quantity) VALUES ("${req.body.name}","${req.body.price}","${req.body.img}","${1}")`;
+        result = await queryDB(sql);
+    }
+    if(Object.keys(result).length > 0){
+        // console.log("AAAAA");
+        // console.log(Object.keys(result).length);
+
+        for(var i = 0;i<Object.keys(result).length;i++){
+            // console.log(result[ProductKeys[i]].name);
+            // console.log(DataNameAddToCart);
+
+            let iteminCart = result[ProductKeys[i]].name;
+
+            if(DataNameAddToCart == iteminCart){
+                var quantity = 1;
+                quantity += result[ProductKeys[i]].quantity;
+                // console.log(quantity);
+                sql = `UPDATE ${tablename} SET quantity = '${quantity}' WHERE name = '${result[ProductKeys[i]].name}'`;
+                result = await queryDB(sql);
+
+                sql = `SELECT * FROM ${tablename}`;
+                result = await queryDB(sql);
+                result = Object.assign({},result);
+                return;
+            }
+
+            else{
+                sql = `INSERT INTO cart (name, price, img, quantity) VALUES ("${req.body.name}","${req.body.price}","${req.body.img}","${1}")`;
+                result = await queryDB(sql)
+
+                sql = `SELECT * FROM ${tablename}`;
+                result = await queryDB(sql);
+                result = Object.assign({},result);
+                return;
+
+            }
+        }
+    }
+    // console.log(Object.keys(result).length);
+    // console.log(result);
+    res.json(result);
+})
 
 app.listen(port, hostname, () => {
     console.log(`Server running at   http://${hostname}:${port}/register.html`);
