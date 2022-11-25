@@ -134,13 +134,14 @@ function showPost(data){
 		var temp3 = document.createElement("button");
 		temp3.type ="submit"
 		temp3.onclick = TestDaata;
+		temp3.innerHTML = "Add To Card";
 		temp2.appendChild(temp3);
 
 		// var temp5 = document.createElement("a");
 		// temp5.href = "Cart.html";
 		// temp3.appendChild(temp5);
 
-		temp1.innerHTML = "Add To Cart";
+		temp1.innerHTML ="Price : " +data[keys[i]]["price"];
 		temp.appendChild(temp1);
 
 		// <input type = "hidden" name="cloth_name" value="{{clothe[0]}}">

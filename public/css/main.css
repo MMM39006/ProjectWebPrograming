@@ -13,9 +13,8 @@ body{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     /* height: 720px; */
     background-color: aliceblue;
+    border: 1px;
 }
-
-
 
 /* ของ Register */
 #RigisterHeader{
@@ -251,34 +250,67 @@ li a{
 }
 
 /* ของ Cart */
+
+.grid-container-cart{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 10px;
+    border: 1px solid red;
+    
+}
+
+.grid-container-cart > div{
+    border: 1px solid black;
+    font-size: 20px;
+    text-align: center;
+    background-color:white;
+}
+
+#header-card{
+    grid-column: 1 / span 5;
+    padding: 2rem 9%;
+    border: 1px solid black;
+}
+
 #MyCardHeader{
-    grid-column: 1 / span 4;
+    grid-column: 1 / span 2;
     background-color: #dddddd00;
 }
 
 #MyCart{
-    grid-column: 1 / span 4;
+    grid-column: 1 / span 2;
     background-color: #dddddd00;
 }
 
+#Checkout{
+    grid-column: 3 / span 3;
+    background-color:white;
+    height: 600px;
+    transform: translate(0px,-55px);
+}
+
 .cart-page{
-    margin-bottom: 20px;
+    margin-bottom: 1px;
 }
 table{
     width: 100%;
     background-color: white;
     border-color: red;
     border-collapse: collapse;
-
+    /* border-radius: 20px; */
 }
 
 .cart-info{
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    /* width: auto; */
+    margin-right:auto;
 }
 
 .product-detail{
     text-align: center;
+    width: 250px;
+    border: 1px solid yellow;
 }
 
 th{
@@ -290,6 +322,8 @@ th{
 }
 td{
     padding: 10px 5px;
+    transform: translate(100px);
+    width: 400px;
 }
 
 td a{
@@ -302,7 +336,28 @@ td input{
     padding: 5px;
 }
 td img{
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     margin-right: 10px;
+}
+
+#quanityinput{
+    transform: translate(60px,70px);
+    width: 60px;
+    height: 20px;
+}
+
+#totalPrice{
+    transform: translate(40px);
+}
+
+#HeaderCheckout{
+    text-align: left;
+    margin:50px;
+}
+
+#BodyCheckout{
+    text-align: left;
+    margin:50px;
+    font-size: medium;
 }

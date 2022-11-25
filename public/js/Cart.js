@@ -1,3 +1,10 @@
+function checkCookie(){
+	var username = "";
+	if(getCookie("username")==false){
+		window.location = "login.html";
+	}
+}
+checkCookie();
 window.onload = pageLoad;
 
 function pageLoad(){
@@ -5,13 +12,27 @@ function pageLoad(){
     let urlParams = new URLSearchParams(queryString);
     let name = urlParams.get('name')
 	if(name != null){
-		getData()
+		getDataFormurl()
 	}
+	// console.log(getCookie('username'));
+
 
 	GetCartItemdata();
+	GetInfoCustomer();
+	// console.log(GetInfoCustomer);
 }
 
-function getData(){
+function getCookie(name){
+	var value = "";
+	try{
+		value = document.cookie.split("; ").find(row => row.startsWith(name)).split('=')[1]
+		return value
+	}catch(err){
+		return false
+	} 
+}
+
+function getDataFormurl(){
     let queryString = window.location.search;
     console.log(queryString);
 
@@ -54,7 +75,7 @@ async function GetData(name,img,price){
 async function GetCartItemdata(){
 	const DataPost = await fetch('/GetCartData');
 	const Data = await DataPost.json();
-	console.log(Data);
+	// console.log(Data);
 	showPost(Data);
 }
 
@@ -108,19 +129,45 @@ function showPost(data){
 		remove.innerHTML = "Remove";
 		button.appendChild(remove);
 
-		var td2 = document.createElement("td");
-		tr.appendChild(td2);
+		// var td2 = document.createElement("td");
+		// tr.appendChild(td2);
 
 		var input = document.createElement("input")
+		input.id = "quanityinput";
 		input.type = "number"
-		input.value = "5";
+		input.value = data[keys[i]]["quantity"];
 		tr.appendChild(input);
 
 		var td3 = document.createElement("td")
-		td3.innerHTML = "500"
+		td3.id="totalPrice";
+		td3.innerHTML = data[keys[i]]["price"]* data[keys[i]]["quantity"];
 		tr.appendChild(td3);
-
-
 	}
 
+}
+
+async function GetInfoCustomer(){
+	const DataPost = await fetch('/GetinfoUser');
+	const DataPrice = await fetch('/GetCartPrice');
+	const Data = await DataPost.json();
+	const Datacart = await DataPrice.json();
+
+	console.log(Datacart);
+	InfoCheckOut(Data,Datacart);
+}
+
+function InfoCheckOut(data,price){
+	var keys = Object.keys(data);
+	var pricekeys = Object.keys(price);
+	var TotalPice = 0;
+	var divname = document.getElementById("CustomerName");
+	divname.innerHTML = data[keys[0]]["firstname"] + " " + data[keys[0]]["lastname"];
+
+	var divprice = document.getElementById("TotalPrice");
+	for(var i =0; i<pricekeys.length;i++){
+		var newprice = price[pricekeys[i]]["price"] * price[pricekeys[i]]["quantity"];
+		console.log(newprice)
+		TotalPice += newprice;
+	}
+	divprice.innerHTML =TotalPice;
 }
