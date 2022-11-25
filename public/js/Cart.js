@@ -8,12 +8,12 @@ checkCookie();
 window.onload = pageLoad;
 
 function pageLoad(){
-    let queryString = window.location.search;
-    let urlParams = new URLSearchParams(queryString);
-    let name = urlParams.get('name')
-	if(name != null){
-		getDataFormurl()
-	}
+    // let queryString = window.location.search;
+    // let urlParams = new URLSearchParams(queryString);
+    // let name = urlParams.get('name')
+	// if(name != null){
+	// 	getDataFormurl()
+	// }
 	// console.log(getCookie('username'));
 
 
@@ -32,45 +32,45 @@ function getCookie(name){
 	} 
 }
 
-function getDataFormurl(){
-    let queryString = window.location.search;
-    console.log(queryString);
+// function getDataFormurl(){
+//     let queryString = window.location.search;
+//     console.log(queryString);
 
-    let urlParams = new URLSearchParams(queryString);
-    let name = urlParams.get('name')
-    console.log(name);
+//     let urlParams = new URLSearchParams(queryString);
+//     let name = urlParams.get('name')
+//     console.log(name);
 
-    let img = urlParams.get('img')
-    console.log(img);
+//     let img = urlParams.get('img')
+//     console.log(img);
 
-    let price = urlParams.get('price')
-    console.log(price);
+//     let price = urlParams.get('price')
+//     console.log(price);
 
-    // GetData(name);
-	GetData(name,img,price);
-}
+//     // GetData(name);
+// 	GetData(name,img,price);
+// }
 
 // async function GetData(name){
 // 	const DataPost = await fetch('/GetItemData');
 // 	const Data = await DataPost.json(name);
 // }
 
-async function GetData(name,img,price){
-	let response = await fetch("/getData",{
-		method: "POST",
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-			name:name,
-			img:img,
-			price:price
-		})
-	});
-	let data = await response.json();
-	console.log(data);
-}
+// async function GetData(name,img,price){
+// 	let response = await fetch("/getData",{
+// 		method: "POST",
+// 		headers: {
+// 			'Accept': 'application/json',
+// 			'Content-Type': 'application/json'
+// 		},
+// 		body: JSON.stringify({
+// 			name:name,
+// 			img:img,
+// 			price:price
+// 		})
+// 	});
+// 	let data = await response.json();
+// 	console.log(data);
+// }
 
 async function GetCartItemdata(){
 	const DataPost = await fetch('/GetCartData');
@@ -100,7 +100,7 @@ function showPost(data){
 		
 		var divinfo = document.createElement("div");
 		divinfo.className = "cart-info"
-		td.appendChild(divinfo);;
+		td.appendChild(divinfo);
 
 		var img = document.createElement("img");
 		img.className = "image-cart";
@@ -122,12 +122,12 @@ function showPost(data){
 		var br = document.createElement("br");
 		divDetail.appendChild(br);
 		
-		var button = document.createElement("button");
-		divDetail.appendChild(button);
+		// var button = document.createElement("button");
+		// divDetail.appendChild(button);
 
-		var remove = document.createElement("a");
-		remove.innerHTML = "Remove";
-		button.appendChild(remove);
+		// var remove = document.createElement("a");
+		// remove.innerHTML = "Remove";
+		// button.appendChild(remove);
 
 		// var td2 = document.createElement("td");
 		// tr.appendChild(td2);
@@ -138,10 +138,46 @@ function showPost(data){
 		input.value = data[keys[i]]["quantity"];
 		tr.appendChild(input);
 
+		// var formnumber = document.createElement("form");
+		// formnumber.oninput;
+		// formnumber.action = '/UpdateQuantity';
+		// divinfo.appendChild(formnumber);
+
+
 		var td3 = document.createElement("td")
 		td3.id="totalPrice";
 		td3.innerHTML = data[keys[i]]["price"]* data[keys[i]]["quantity"];
 		tr.appendChild(td3);
+
+		var form = document.createElement("form");
+		form.name = "Cart";
+		form.action = '/removeitem'
+		form.method = "post"
+		divinfo.appendChild(form);
+		
+		var namedata = document.createElement("input");
+		namedata.type = "hidden"
+		namedata.name = "name";
+		namedata.value = data[keys[i]]["name"];
+		form.appendChild(namedata);
+
+		var imgdata = document.createElement("input");
+		imgdata.type = "hidden"
+		imgdata.name = "img";
+		imgdata.value = data[keys[i]]["img"];
+		form.appendChild(imgdata);
+
+		var pricedata = document.createElement("input")
+		pricedata.type = "hidden"
+		pricedata.name = "price"
+		pricedata.value = data[keys[i]]["price"];
+		form.appendChild(pricedata);
+
+		var remove = document.createElement("button");
+		remove.type ="submit"
+		// remove.onclick = TestDaata;
+		remove.innerHTML = "Remove";
+		form.appendChild(remove);
 	}
 
 }
@@ -170,4 +206,16 @@ function InfoCheckOut(data,price){
 		TotalPice += newprice;
 	}
 	divprice.innerHTML =TotalPice;
+
+	var buttonCheckout = document.getElementById("ButtonCheckout");
+
+	var formbuttom = document.createElement("form");
+	formbuttom.action = ('/checkout');
+	buttonCheckout.appendChild(formbuttom);
+
+	var checkoutButton = document.createElement("button")
+	checkoutButton.innerHTML = "Check Out";
+	checkoutButton.type ="submit"
+	formbuttom.appendChild(checkoutButton);
+
 }

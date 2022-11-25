@@ -109,10 +109,10 @@ function showPost(data){
 
 		var temp2 = document.createElement("form");
 		temp2.name = "Cart";
-		temp2.action = 'Cart.html'
-		temp2.method ="get"
+		temp2.action = '/AddItemToCart'
+		temp2.method ="post"
 		temp.appendChild(temp2);
-
+		
 		var temp4 = document.createElement("input")
 		temp4.type = "hidden"
 		temp4.name = "name";
@@ -133,7 +133,6 @@ function showPost(data){
 
 		var temp3 = document.createElement("button");
 		temp3.type ="submit"
-		temp3.onclick = TestDaata;
 		temp3.innerHTML = "Add To Card";
 		temp2.appendChild(temp3);
 
