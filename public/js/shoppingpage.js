@@ -140,8 +140,8 @@ function showPost(data){
 		// temp5.href = "Cart.html";
 		// temp3.appendChild(temp5);
 
-		temp1.innerHTML ="Price : " +data[keys[i]]["price"];
-		temp.appendChild(temp1);
+		// temp1.innerHTML ="Price : " +data[keys[i]]["price"];
+		// temp.appendChild(temp1);
 
 		// <input type = "hidden" name="cloth_name" value="{{clothe[0]}}">
         //             <input type = "hidden" name="price" value="{{clothe[1]}}">

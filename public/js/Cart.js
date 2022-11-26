@@ -132,10 +132,10 @@ function showPost(data){
 		// var td2 = document.createElement("td");
 		// tr.appendChild(td2);
 
-		var input = document.createElement("input")
+		var input = document.createElement("h3")
 		input.id = "quanityinput";
-		input.type = "number"
-		input.value = data[keys[i]]["quantity"];
+		// input.type = "number"
+		input.innerHTML ="x " + data[keys[i]]["quantity"];
 		tr.appendChild(input);
 
 		// var formnumber = document.createElement("form");

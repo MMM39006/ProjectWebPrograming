@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
 
 body{
-    background-color: rgb(102, 102, 168);
+    /* background-color: rgb(102, 102, 168); */
     /* padding: 0px; */
     justify-content: center;
+    height: 100%;
+    margin: 0;
 }
 
 /* ของ login */
-#myLogin{
 
+#myLogin{
     padding-top: 10px;
     margin: 0 auto;
+    margin-top: 80px;
     width: 480px;
     border-radius: 25px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -97,6 +100,7 @@ body{
 #myForm{
     padding-top: 10px;
     margin: 0 auto;
+    margin-top: 80px;
     width: 480px;
     border-radius: 25px;
     background-color: aliceblue;
@@ -129,6 +133,8 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 .hero-image {
@@ -138,7 +144,7 @@ body{
     background-size: cover;
     position: relative;
     opacity: 0.3;
-  }
+}
 
 .hero-text {
     text-align: center;
@@ -150,14 +156,38 @@ body{
 }
 
 #iconimg{
-    width: 550px;
+    width: 500px;
 }
 
-.hero-icon {
+#iconimg2{
+    width: 250px;
+}
+
+.hero-icon1 {
+    /* opacity: 0.8; */
     text-align: center;
     position: absolute;
-    top: 66%;
+    top: 35%;
     left: 67%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.hero-icon2 {
+    /* opacity: 0.8; */
+    text-align: center;
+    position: absolute;
+    top: 60%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.hero-icon3 {
+    text-align: center;
+    position: absolute;
+    top: 45%;
+    left: 65%;
     transform: translate(-50%, -50%);
     color: white;
 }
@@ -180,6 +210,17 @@ body{
     /* margin-bottom: 15px; */
     font-size: 40px;
 }
+
+#GoWebsiteButton button:active{
+    height: 80px;
+    width: 400px;
+    border-radius: 20px;
+    background-color:rgb(19, 179, 104);
+    border: 0px;
+    /* margin-bottom: 15px; */
+    font-size: 40px;
+}
+
 div h1{
     font-size: 80px;
 }
@@ -195,6 +236,8 @@ div h2{
     text-align: center;
     position: relative;
     text-align: left;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 .flex-container{
@@ -260,8 +303,73 @@ a{
     background: #fff;
 } */
 
+.thick-arrow-left {
+    width: 25px;
+    height: 25px;
+    border: 10px solid rgb(255, 255, 255);
+    border-left: 0;
+    border-top: 0;
+  
+    transform: rotate(135deg);
+}
+
+.hero-backgroundShoppingPage {
+    overflow: hidden;
+    position: relative;
+    background: -webkit-linear-gradient(117deg, rgb(96, 87, 246), rgb(216, 71, 99));
+    background: linear-gradient(117deg, rgb(96, 87, 246), rgb(216, 71, 99));
+    background: -webkit-radial-gradient(rgb(194, 74, 126), rgb(105, 86, 235));
+    background: radial-gradient(rgb(194, 74, 126), rgb(105, 86, 235));
+    height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.black-sectionShoppingPage {
+    background-color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    position: relative;
+    text-align: left;
+    top: 100%;
+    overflow: hidden;
+    padding-left: 80px;
+    padding-right: 80px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.black-sectionShoppingPage a{
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.black-sectionShoppingPage a.split {
+    float: right;
+    /* background-color: #04AA6D; */
+    color: white;
+  }
+
+  .black-sectionShoppingPage img{
+    width: 30px;
+}
+
+
 #Leftpage{
     text-align: left;
+}
+#Leftpage a{
+    padding-left: 80px;
+    color: white;
 }
 
 #Rightpage{
@@ -272,13 +380,16 @@ a{
     display: grid;
     grid-template-columns: 25% auto auto auto;
     grid-gap: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #e8d6ff;
+    margin-top: 20px;
 }
 
 .grid-container > div{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-size: 20px;
     text-align: center;
-    background-color:white;
+    /* background-color:white; */
 }
 
 #header{
@@ -301,87 +412,137 @@ a{
     margin: 5px;
     /* border-radius: 7px; */
     text-align: left;
-    background-color: gainsboro;
+    background-color: white;
 }
 
 #MenuProductCPU{
-    padding: 20px;
+    /* padding: 20px; */
     padding-left: 50px;
     margin: 5px;
     border-radius: 7px;
     border-left: 5px solid palevioletred;
     text-align: left;
-    background-color: gainsboro;
+    background-color: white;
+
+}
+
+.MenuProduct h4{
+    padding-left: 20px;
+    text-align: right;
+    display: inline-block;
+    transform: translate(0,-5px);
+}
+
+.MenuProduct img{
+    width: 60px;
+    height:60px;
+    transform: translate(0,15px);
+    display: inline-block;
+    /* background-color: red; */
+}
+
+#MenuProductCPU:hover{
+    border-left: 7px solid rgb(112, 114, 216);
+    font-size: 24px;
+    transition: border-left 1s,font-size 0.5s;
 }
 
 #MenuProductMainboard{
-    padding: 20px;
+    /* padding: 20px; */
     padding-left: 50px;
     margin: 5px;
     border-radius: 7px;
     border-left: 5px solid palevioletred;
     text-align: left;
-    background-color: gainsboro;
+    background-color: white;
+}
+
+#MenuProductMainboard:hover{
+    border-left: 7px solid rgb(112, 114, 216);
+    font-size: 24px;
+    transition: border-left 1s,font-size 0.5s;
 }
 
 #MenuProductVGA{
-    padding: 20px;
+    /* padding: 20px; */
     padding-left: 50px;
     margin: 5px;
     border-radius: 7px;
     border-left: 5px solid palevioletred;
     text-align: left;
-    background-color: gainsboro;
+    background-color: white;
 }
 
-#MenuProductVGA{
-    padding: 20px;
-    padding-left: 50px;
-    margin: 5px;
-    border-radius: 7px;
-    border-left: 5px solid palevioletred;
-    text-align: left;
-    background-color: gainsboro;
+#MenuProductVGA:hover{
+    border-left: 7px solid rgb(112, 114, 216);
+    font-size: 24px;
+    transition: border-left 1s,font-size 0.5s;
 }
+
 #MenuProductMemory{
-    padding: 20px;
+    /* padding: 20px; */
     padding-left: 50px;
     margin: 5px;
     border-radius: 7px;
     border-left: 5px solid palevioletred;
     text-align: left;
-    background-color: gainsboro;
+    background-color: white;
+}
+
+#MenuProductMemory:hover{
+    border-left: 7px solid rgb(112, 114, 216);
+    font-size: 24px;
+    transition: border-left 1s,font-size 0.5s;
 }
 
 #MenuProductHarddisk{
-    padding: 20px;
+    /* padding: 20px; */
     padding-left: 50px;
     margin: 5px;
     border-radius: 7px;
     border-left: 5px solid palevioletred;
     text-align: left;
-    background-color: gainsboro;
+    background-color: white;
+}
+
+#MenuProductHarddisk:hover{
+    border-left: 7px solid rgb(112, 114, 216);
+    font-size: 24px;
+    transition: border-left 1s,font-size 0.5s;
 }
 
 #MenuProductPowerSuply{
-    padding: 20px;
+    /* padding: 20px; */
     padding-left: 50px;
     margin: 5px;
     border-radius: 7px;
     border-left: 5px solid palevioletred;
     text-align: left;
-    background-color: gainsboro;
+    background-color: white;
+}
+
+#MenuProductPowerSuply:hover{
+    border-left: 7px solid rgb(112, 114, 216);
+    font-size: 24px;
+    transition: border-left 1s,font-size 0.5s;
 }
 
 #MenuProductCase{
-    padding: 20px;
+    /* padding: 20px; */
     padding-left: 50px;
     margin: 5px;
     border-radius: 7px;
     border-left: 5px solid palevioletred;
     text-align: left;
-    background-color: gainsboro;
+    background-color: white;
 }
+
+#MenuProductCase:hover{
+    border-left: 7px solid rgb(112, 114, 216);
+    font-size: 24px;
+    transition: border-left 1s,font-size 0.5s;
+}
+
 
 ul{
     list-style-type: none;
@@ -406,38 +567,96 @@ li a{
     margin-left: 10px;
     margin-bottom: 10px;
 }
+
+#Product button:hover{
+    width: 230px;
+    height: 60px;
+    font-size: 22px;
+    transition: width 0.5s, height 0.5s, font-size 0.5s;
+}
+
+
+
 .ProductDetail{
     width: 360px;
     height: 380px;
     border-radius: 7px;
-    border:1px solid red;
+    background-color: white;
+    /* border:1px solid red; */
 }
+.ProductDetail img:hover{
+    width: 230px;
+    height: 230px;
+    border-radius: 7px;
+    background-color: white;
+    transition: width 0.5s, height 0.5s;
+    /* border:1px solid red; */
+}
+
 .Name{
+    padding-top: 30px;
+    padding-left: 20px;
+
     text-align: left;
 }
 
 .ProductPicture{
     /* background-color: black; */
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
 }
 
 .Price{
     color: red;
 }
 
+.ProductDetail button{
+    width: 200px;
+    height: 45px;
+    border-radius: 23px;
+    color: white;
+    font-size: 15px;
+    border: 0px;;
+    background-color: rgb(139, 107, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(40, 48, 155, 0.342);
+}
+
 /* ของ Cart */
+
+.black-sectionCart {
+    background-color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    position: relative;
+    text-align: left;
+    top: 100%;
+    overflow: hidden;
+    padding-left: 80px;
+    padding-right: 80px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.black-sectionCart a{
+    color: white;
+    font-size: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
 
 .grid-container-cart{
     display: grid;
+    background-color: #e8d6ff;
+    /* background-color: whitesmoke; */
     grid-template-columns: auto auto auto auto auto;
     grid-gap: 10px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     
 }
 
 .grid-container-cart > div{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-size: 20px;
     text-align: center;
     background-color:white;
@@ -452,18 +671,33 @@ li a{
 #MyCardHeader{
     grid-column: 1 / span 2;
     background-color: #dddddd00;
+    margin-left: 10px;
 }
 
 #MyCart{
     grid-column: 1 / span 2;
     background-color: #dddddd00;
+    margin-left: 10px;
+}
+
+#CartData{
+    /* border-bottom: 1px solid black; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 #Checkout{
-    grid-column: 3 / span 3;
+    grid-column: 4 / span 1;
     background-color:white;
     height: 600px;
+    margin-top: 55px;
+    margin-right: 10px;
+    border-radius: 23px;
     transform: translate(0px,-55px);
+    /* background-color: rgb(20, 20, 20); */
+}
+
+#Checkout div{
+    color: black;
 }
 
 .cart-page{
@@ -484,10 +718,27 @@ table{
     margin-right:auto;
 }
 
+.cart-info button{
+    background-color: rgb(255, 123, 134);
+    font-size: 15px;
+    border-radius: 17px;
+    width: 100px;
+    height: 30px;
+    transform: translate(0,30px);
+}
+
+.cart-info button:active{
+    background-color: rgb(145, 68, 76);
+    font-size: 15px;
+    border-radius: 17px;
+    width: 100px;
+    height: 30px;
+    transform: translate(0,30px);
+}
+
 .product-detail{
     text-align: center;
     width: 250px;
-    border: 1px solid yellow;
 }
 
 th{
@@ -519,7 +770,7 @@ td img{
 }
 
 #quanityinput{
-    transform: translate(60px,70px);
+    transform: translate(160px,20px);
     width: 60px;
     height: 20px;
 }
@@ -537,4 +788,34 @@ td img{
     text-align: left;
     margin:50px;
     font-size: medium;
+}
+
+#ButtonCheckout button{
+    color: whitesmoke;
+    background-color: black;
+    font-size: 18px;
+    margin-top: 80px;
+    border-radius: 17px;
+    width: 180px;
+    height: 50px;
+}
+#ButtonCheckout button:hover{
+    color: black;
+    background-color: rgb(182, 182, 182);
+    font-size: 22px;
+    margin-top: 80px;
+    border-radius: 17px;
+    width: 220px;
+    height: 60px;
+    transition: width 0.5s, height 0.5s, background-color 0.5s;
+}
+#ButtonCheckout button:active{
+    color: whitesmoke;
+    background-color: black;
+    font-size: 22px;
+    margin-top: 80px;
+    border-radius: 17px;
+    width: 220px;
+    height: 60px;
+    /* transition: width 0.5s, height 0.5s, background-color 0.5s; */
 }
