@@ -202,7 +202,7 @@ app.get('/GetCartData', async (req,res) => {
     sql = `SELECT * FROM ${tablename} WHERE customer = '${req.cookies.username}'`;
     result = await queryDB(sql);
     result = Object.assign({},result);
-    // console.log(result);
+    console.log(result);
     res.json(result);
 })
 
@@ -262,7 +262,7 @@ app.post('/AddItemToCart',async (req,res) => {
         console.log("Insert=0");
         sql = `INSERT INTO cart (name, price, img, quantity, customer) VALUES ("${req.body.name}","${req.body.price}","${req.body.img}","${1}","${req.cookies.username}")`;
         result = await queryDB(sql);
-        return res.redirect('Cart.html');
+        return res.redirect('Shopping.html');
     }
     if(Object.keys(resultselect).length > 0){
         // console.log("AAAAA");
@@ -287,7 +287,7 @@ app.post('/AddItemToCart',async (req,res) => {
                 result = await queryDB(sql);
                 result = Object.assign({},result);
                 // console.log(result);
-                return res.redirect('Cart.html');
+                return res.redirect('Shopping.html');
 
                 // return;
             }
@@ -302,7 +302,7 @@ app.post('/AddItemToCart',async (req,res) => {
         result = await queryDB(sql);
         result = Object.assign({},result);
         // console.log(result);
-        return res.redirect('Cart.html');
+        return res.redirect('Shopping.html');
 
         // return;
         

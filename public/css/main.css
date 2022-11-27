@@ -336,11 +336,28 @@ a{
     text-align: center;
     position: relative;
     text-align: left;
-    top: 100%;
+    top: 0;
     overflow: hidden;
     padding-left: 80px;
     padding-right: 80px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    position: sticky;
+    z-index: 1;
+
+}
+
+.stickyPo{
+    position: sticky;
+    width: fit-content;
+    height: fit-content;
+    transform: translate(0,50px);
+    bottom: 0;
+    left: 100%;
+}
+
+.stickyPo img{
+    width: 20px;
+    height: 20px;
 
 }
 
@@ -431,6 +448,7 @@ a{
     text-align: right;
     display: inline-block;
     transform: translate(0,-5px);
+    position: relative; 
 }
 
 .MenuProduct img{
@@ -438,6 +456,9 @@ a{
     height:60px;
     transform: translate(0,15px);
     display: inline-block;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
     /* background-color: red; */
 }
 

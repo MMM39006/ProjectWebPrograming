@@ -2,6 +2,7 @@ window.onload = pageLoad;
 
 function pageLoad(){
 	ReadData();
+	ShowCartquantity();
 	document.getElementById('HeaderTextMenubar').onclick = ReadData;
 	document.getElementById('MenuProductCPU').onclick = ReadDataCpu;
 	document.getElementById('MenuProductMainboard').onclick = ReadDataMainboard;
@@ -75,6 +76,26 @@ async function ReadDataCase(){
 	const DataPost = await fetch('/readDataCase');
 	const Data = await DataPost.json();
 	showPost(Data);
+}
+
+async function ShowCartquantity(){
+	const DataPrice = await fetch('/Getquanity');
+	const Data = await DataPrice.json();
+	console.log(Data);
+
+	var keys = Object.keys(Data);
+	var CartQu = document.getElementById('Cartquantity');
+	var quantity=0;
+
+	for (var i = keys.length-1; i >=0 ; i--){
+		quantity +=Data[keys[i]]["quantity"];
+	}
+	CartQu.innerHTML = quantity;
+	
+	var temp1 = document.createElement("img");
+		// console.log(data[keys[i]]["img"]);
+	temp1.src = "img/Cart.png";
+	CartQu.appendChild(temp1);
 }
 
 function showPost(data){

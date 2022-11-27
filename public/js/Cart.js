@@ -16,7 +16,6 @@ function pageLoad(){
 	// }
 	// console.log(getCookie('username'));
 
-
 	GetCartItemdata();
 	GetInfoCustomer();
 	// console.log(GetInfoCustomer);
@@ -215,7 +214,7 @@ function InfoCheckOut(data,price){
 
 	var checkoutButton = document.createElement("button")
 	checkoutButton.innerHTML = "Check Out";
-	checkoutButton.type ="submit"
+	checkoutButton.type ="submit";
 	formbuttom.appendChild(checkoutButton);
 
 }
