@@ -188,101 +188,29 @@ app.get('/readDataCase', async (req,res) => {
 })
 
 
-app.get('/Cart', async (req,res) => {
-    // const queryString = window.location.search;
+// app.get('/Cart', async (req,res) => {
+//     // const queryString = window.location.search;
 
-    // console.log(queryString);
-    return res.redirect('Cart.html');
-    // return render_template('Cart.html');
-})
+//     // console.log(queryString);
+//     return res.redirect('Cart.html');
+//     // return render_template('Cart.html');
+// })
 
 app.get('/GetCartData', async (req,res) => {
     tablename = "cart";
 
-    sql = `SELECT * FROM ${tablename}`;
+    sql = `SELECT * FROM ${tablename} WHERE customer = '${req.cookies.username}'`;
     result = await queryDB(sql);
     result = Object.assign({},result);
     // console.log(result);
     res.json(result);
 })
 
-// app.get('/GetItemData', async(req,res) =>{
-//     const DataItem = await req.body;
-//     console.log(DataItem);
-
-//     res.json(DataItem);
-// })
-
-// app.post('/getData',async (req,res) => {
-//     tablename = "cart";
-//     let createsql = "CREATE TABLE IF NOT EXISTS cart (id int AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), price int,  img VARCHAR(255), quantity int)";
-//     let resultcreate = await queryDB(createsql);
-
-//     const DataNameAddToCart = await req.body.name;
-    
-//     // console.log(DataNameAddToCart);
-
-//     selectsql = `SELECT * FROM cart`;
-//     let resultselect = await queryDB(selectsql);
-//     resultselect = Object.assign({},resultselect);
-
-//     let ProductKeys = Object.keys(resultselect);
-//     // console.log("length : " + Object.keys(resultselect).length);
-
-//     if(Object.keys(resultselect).length == 0){
-//         // console.log("iiiiii");
-//         console.log("Insert=0");
-//         sql = `INSERT INTO cart (name, price, img, quantity) VALUES ("${req.body.name}","${req.body.price}","${req.body.img}","${1}")`;
-//         result = await queryDB(sql);
-//     }
-//     if(Object.keys(resultselect).length > 0){
-//         // console.log("AAAAA");
-//         // console.log(Object.keys(result).length);
-
-//         for(var i = 0;i<Object.keys(resultselect).length;i++){
-//             // console.log(resultselect[ProductKeys[i]].name);
-//             // console.log(DataNameAddToCart);
-
-//             let iteminCart = resultselect[ProductKeys[i]].name;
-//             // console.log(iteminCart);
-//             // console.log(DataNameAddToCart);
-//             if(DataNameAddToCart == iteminCart){
-//                 var quantity = 1;
-//                 // console.log("update");
-//                 quantity += resultselect[ProductKeys[i]].quantity;
-//                 // console.log(quantity);
-//                 sql = `UPDATE cart SET quantity = '${quantity}' WHERE name = '${iteminCart}'`;
-//                 result = await queryDB(sql);
-
-//                 sql = `SELECT name, price, img, quantity, price*quantity AS total_price FROM cart WHERE name = '${req.body.name}'`;
-//                 result = await queryDB(sql);
-//                 result = Object.assign({},result);
-//                 // console.log(result);
-//                 return;
-//             }
-//             // * FROM ${tablename}
-//         }
-//         sql = `INSERT INTO cart (name, price, img, quantity) VALUES ("${req.body.name}","${req.body.price}","${req.body.img}","${1}")`;
-//         result = await queryDB(sql)
-//         // console.log("Insert>1");
-
-//         sql = `SELECT name, price, img, quantity, price*quantity AS total_price FROM cart WHERE name = '${req.body.name}'`;
-//         // sql = `SELECT * FROM ${tablename}`;
-//         result = await queryDB(sql);
-//         result = Object.assign({},result);
-//         // console.log(result);
-//         return;
-        
-//     }
-//     // console.log(Object.keys(result).length);
-//     // console.log(result);
-//     res.json(result);
-// })
 
 app.get('/Getquanity', async (req,res) => {
     tablename = "Cart";
 
-    sql = `SELECT * FROM ${tablename}`;
+    sql = `SELECT * FROM ${tablename} WHERE customer = '${req.cookies.username}'`;
     result = await queryDB(sql);
     result = Object.assign({},result);
     // console.log(result);
@@ -303,7 +231,7 @@ app.get('/GetinfoUser', async (req,res) => {
 app.get('/GetCartPrice', async (req,res) => {
     tablename = "cart";
 
-    sql = `SELECT * FROM ${tablename}`;
+    sql = `SELECT * FROM ${tablename} WHERE customer = '${req.cookies.username}'`;
     result = await queryDB(sql);
     result = Object.assign({},result);
     // console.log(result);
@@ -315,14 +243,14 @@ app.post('/AddItemToCart',async (req,res) => {
     console.log(name);
 
     tablename = "cart";
-    let createsql = "CREATE TABLE IF NOT EXISTS cart (id int AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), price int,  img VARCHAR(255), quantity int)";
+    let createsql = "CREATE TABLE IF NOT EXISTS cart (id int AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), price int,  img VARCHAR(255), quantity int, customer VARCHAR(255))";
     let resultcreate = await queryDB(createsql);
 
     const DataNameAddToCart = await req.body.name;
     
     console.log(DataNameAddToCart);
 
-    selectsql = `SELECT * FROM cart`;
+    selectsql = `SELECT * FROM cart WHERE customer = '${req.cookies.username}'`;
     let resultselect = await queryDB(selectsql);
     resultselect = Object.assign({},resultselect);
 
@@ -332,7 +260,7 @@ app.post('/AddItemToCart',async (req,res) => {
     if(Object.keys(resultselect).length == 0){
         // console.log("iiiiii");
         console.log("Insert=0");
-        sql = `INSERT INTO cart (name, price, img, quantity) VALUES ("${req.body.name}","${req.body.price}","${req.body.img}","${1}")`;
+        sql = `INSERT INTO cart (name, price, img, quantity, customer) VALUES ("${req.body.name}","${req.body.price}","${req.body.img}","${1}","${req.cookies.username}")`;
         result = await queryDB(sql);
         return res.redirect('Cart.html');
     }
@@ -352,10 +280,10 @@ app.post('/AddItemToCart',async (req,res) => {
                 // console.log("update");
                 quantity += resultselect[ProductKeys[i]].quantity;
                 // console.log(quantity);
-                sql = `UPDATE cart SET quantity = '${quantity}' WHERE name = '${iteminCart}'`;
+                sql = `UPDATE cart SET quantity = '${quantity}' WHERE name = '${iteminCart}' AND customer = '${req.cookies.username}'`;
                 result = await queryDB(sql);
 
-                sql = `SELECT name, price, img, quantity, price*quantity AS total_price FROM cart WHERE name = '${req.body.name}'`;
+                sql = `SELECT name, price, img, quantity, price*quantity AS total_price FROM cart WHERE name = '${req.body.name}' AND customer = '${req.cookies.username}'`;
                 result = await queryDB(sql);
                 result = Object.assign({},result);
                 // console.log(result);
@@ -365,11 +293,11 @@ app.post('/AddItemToCart',async (req,res) => {
             }
             // * FROM ${tablename}
         }
-        sql = `INSERT INTO cart (name, price, img, quantity) VALUES ("${req.body.name}","${req.body.price}","${req.body.img}","${1}")`;
+        sql = `INSERT INTO cart (name, price, img, quantity, customer) VALUES ("${req.body.name}","${req.body.price}","${req.body.img}","${1}","${req.cookies.username}")`;
         result = await queryDB(sql)
         // console.log("Insert>1");
 
-        sql = `SELECT name, price, img, quantity, price*quantity AS total_price FROM cart WHERE name = '${req.body.name}'`;
+        sql = `SELECT name, price, img, quantity, price*quantity AS total_price FROM cart WHERE name = '${req.body.name}' AND customer = '${req.cookies.username}'`;
         // sql = `SELECT * FROM ${tablename}`;
         result = await queryDB(sql);
         result = Object.assign({},result);
@@ -389,14 +317,14 @@ app.post('/removeitem',async (req,res) => {
     let name = req.body.name;
     // console.log(name);
 
-    let sql = `DELETE FROM cart WHERE name = '${req.body.name}'`;
+    let sql = `DELETE FROM cart WHERE name = '${req.body.name}' AND customer = '${req.cookies.username}'`;
     result = await queryDB(sql);
     return res.redirect('Cart.html');
     // res.json(result);
 })
 
 app.get('/checkout', async (req,res) => {
-    let sql = `DELETE FROM cart`;
+    let sql = `DELETE FROM cart WHERE customer = '${req.cookies.username}'`;
     result = await queryDB(sql);
     result = Object.assign({},result);
     // console.log(result);\
