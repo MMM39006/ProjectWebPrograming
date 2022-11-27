@@ -202,7 +202,7 @@ app.get('/GetCartData', async (req,res) => {
     sql = `SELECT * FROM ${tablename} WHERE customer = '${req.cookies.username}'`;
     result = await queryDB(sql);
     result = Object.assign({},result);
-    console.log(result);
+    // console.log(result);
     res.json(result);
 })
 
@@ -240,7 +240,7 @@ app.get('/GetCartPrice', async (req,res) => {
 
 app.post('/AddItemToCart',async (req,res) => {
     let name = req.body.name;
-    console.log(name);
+    // console.log(name);
 
     tablename = "cart";
     let createsql = "CREATE TABLE IF NOT EXISTS cart (id int AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), price int,  img VARCHAR(255), quantity int, customer VARCHAR(255))";
@@ -248,7 +248,7 @@ app.post('/AddItemToCart',async (req,res) => {
 
     const DataNameAddToCart = await req.body.name;
     
-    console.log(DataNameAddToCart);
+    // console.log(DataNameAddToCart);
 
     selectsql = `SELECT * FROM cart WHERE customer = '${req.cookies.username}'`;
     let resultselect = await queryDB(selectsql);
@@ -328,7 +328,7 @@ app.get('/checkout', async (req,res) => {
     result = await queryDB(sql);
     result = Object.assign({},result);
     // console.log(result);\
-    return res.redirect('Cart.html');
+    return res.redirect('Thankyou.html');
 })
 
 app.listen(port, hostname, () => {

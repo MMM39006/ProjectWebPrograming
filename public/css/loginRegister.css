@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
+
 body{
     background: linear-gradient(120deg, rgb(194, 74, 126), rgb(105, 86, 235));
     margin: 0;
     padding: 0;
     height: 100vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .hero-background {
@@ -27,4 +30,61 @@ body{
     padding-bottom: 10px;
     padding-top: 10px;
 
+}
+
+.center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+#thankyoubox{
+    text-align: center;
+    width: 800px;
+    height: 500px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+#thankyoubox h1{
+    font-size: 80px;
+    margin-top: 0;
+}
+
+#thankyoubox img{
+    padding-top: 30px;
+    /* margin-bottom: 20px; */
+    width: 150px;
+}
+#thankyoubox button{
+    /* margin-bottom: 20px; */
+    border: none;
+    background-color: rgb(129, 127, 255);
+    border-radius: 20px;
+    font-size: 40px;
+    width: 220px;
+    height: 80px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+#thankyoubox button:hover{
+    /* margin-bottom: 20px; */
+    border: none;
+    background-color: rgb(98, 97, 197);
+    border-radius: 20px;
+    font-size: 40px;
+    width: 220px;
+    height: 80px;
+}
+
+#thankyoubox button:active{
+    /* margin-bottom: 20px; */
+    border: none;
+    background-color: rgb(98, 97, 197);
+    border-radius: 20px;
+    font-size: 30px;
+    width: 200px;
+    height: 70px;
 }
