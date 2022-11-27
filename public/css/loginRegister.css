@@ -1,5 +1,8 @@
 body{
-    background-color: rgb(102, 102, 168);
+    background: linear-gradient(120deg, rgb(194, 74, 126), rgb(105, 86, 235));
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 }
 
 .hero-background {
@@ -15,5 +18,13 @@ body{
     background-size: cover;
     position: relative;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+#RegisterHeaderText{
+    margin:0 auto;
+    font-size: 36px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 
 }
