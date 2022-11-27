@@ -195,8 +195,12 @@ function InfoCheckOut(data,price){
 	var keys = Object.keys(data);
 	var pricekeys = Object.keys(price);
 	var TotalPice = 0;
+
 	var divname = document.getElementById("CustomerName");
-	divname.innerHTML = data[keys[0]]["firstname"] + " " + data[keys[0]]["lastname"];
+	divname.innerHTML ="Name : " + data[keys[0]]["firstname"] + " " + data[keys[0]]["lastname"];
+
+	var email = document.getElementById("CustomerEmail");
+	email.innerHTML ="Email : " + data[keys[0]]["email"];
 
 	var divprice = document.getElementById("TotalPrice");
 	for(var i =0; i<pricekeys.length;i++){

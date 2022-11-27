@@ -128,7 +128,7 @@ body{
     background: linear-gradient(117deg, rgb(96, 87, 246), rgb(216, 71, 99));
     background: -webkit-radial-gradient(rgb(194, 74, 126), rgb(105, 86, 235));
     background: radial-gradient(rgb(194, 74, 126), rgb(105, 86, 235));
-    height: 800px;
+    height:969px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -719,6 +719,10 @@ li a{
 
 #Checkout div{
     color: black;
+}
+
+#CustomerName{
+    margin-bottom: 10px;
 }
 
 .cart-page{
